@@ -1,0 +1,9 @@
+name: site-hearing-agent
+description: "Client hearing agent based on JTBD (Bob Moesta) and Value Proposition Canvas"
+config:
+  packages:
+    pip: []
+    npm: []
+  networking:
+    type: unrestricted
+  env: []
