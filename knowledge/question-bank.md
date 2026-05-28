@@ -30,7 +30,7 @@
 
 orchestrator へのハンドオフ依頼テンプレ:
 ```
-aachat session run site-strategy-orchestrator --project <project> --via claude-code "
+aachat session run site-strategy-orchestrator.<owner> --project <project> "
 新規案件の case doc を作成してください。
 - クライアント名: <name>
 - case_id 候補: <kebab-case>

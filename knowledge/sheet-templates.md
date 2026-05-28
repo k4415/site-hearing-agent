@@ -28,7 +28,7 @@
 ```
 
 3 つ揃った時点で:
-1. 裏で `aachat session run site-strategy-orchestrator` を呼んで case doc 作成依頼（非同期）
+1. 裏で `aachat session run site-strategy-orchestrator.<owner>` を呼んで case doc 作成依頼（非同期）
 2. クライアントには「ありがとうございます。それでは事前資料の確認に進みますね」と続けて、下記 ① を一括送信
 
 ---

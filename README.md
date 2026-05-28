@@ -18,7 +18,7 @@
 このエージェントは **サイト制作プロジェクトの入り口** です。人間（クライアント・案件オーナー）はまずこのエージェントに話しかけてください。
 
 ```bash
-aachat session run site-hearing-agent --project site-creation-suite --via claude-code \
+aachat session run site-hearing-agent.<owner> --project site-creation-suite \
   "サイト作りたい。"
 ```
 
@@ -38,7 +38,7 @@ aachat session run site-hearing-agent --project site-creation-suite --via claude
 orchestrator から既存 case doc 付きで起動する場合:
 
 ```bash
-aachat session run site-hearing-agent --project <project> --via claude-code "
+aachat session run site-hearing-agent.<owner> --project <project> "
 クライアント <name> のヒアリングを開始。
 brief_type: <lp|saas|未確定>
 案件ハブ: [[aachat/docs/<team>/<project>/cases/<case-id>.md]]
