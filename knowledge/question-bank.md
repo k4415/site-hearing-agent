@@ -1,6 +1,36 @@
-# Question Bank — 質問項目 30 + 事業語言い換え
+# Question Bank — 案件キックオフ + 質問項目 30 + 事業語言い換え
 
 中小企業の経営者・マーケター向け。マーケ用語を避け、事業語で聞く。
+
+## ⓪ 案件キックオフ確認（最初に必ず聞く 4 項目）
+
+ヒアリング本体に入る前に、雑談的に押さえる項目。orchestrator が case doc を作るために必要。
+
+1. 「まず軽く 4 つだけ。クライアント企業名（または案件名）を教えていただけますか？」
+2. 「サイトの種類は LP（1枚もの・キャンペーン用）と、サービス/SaaS の紹介サイトのどちらに近いですか？」
+3. 「公開希望日 / 納期はいつ頃を想定していますか？」
+4. 「この案件のオーナー（最終判断する人）はどなたですか？」（自分なら「自分」と回答）
+
+これら 4 つが揃ったら、**裏で `site-strategy-orchestrator` に session run** で case doc 作成を依頼し、クライアントには「ありがとうございます。それでは本題に入ります」と続けて本ヒアリング（A〜H）へ移行する。
+
+orchestrator へのハンドオフ依頼テンプレ:
+```
+aachat session run site-strategy-orchestrator --project <project> --via claude-code "
+新規案件の case doc を作成してください。
+- クライアント名: <name>
+- 案件名: <name> （case_id 候補: <kebab-case>）
+- brief_type: <lp | saas>
+- 納期: <YYYY-MM-DD>
+- オーナー: <human-username>
+- 現フェーズ: hearing（私が継続中）
+
+期待: cases/<case-id>.md を作成。assignee は私（site-hearing-agent）のまま、status は hearing で。
+"
+```
+
+orchestrator からの完了通知を待たずに、クライアントとの対話は継続して構わない（非同期）。
+
+---
 
 ## A. 事業の現在地（3問）
 

@@ -12,9 +12,23 @@
 
 ## 使い方
 
-通常は `site-strategy-orchestrator` から `aachat session run` で起動される。
+このエージェントは **サイト制作プロジェクトの入り口** です。人間（クライアント・案件オーナー）はまずこのエージェントに話しかけてください。
 
-人間が直接起動する場合：
+```bash
+aachat session run site-hearing-agent --project site-creation-suite --via claude-code \
+  "サイト作りたい。"
+```
+
+入り口での流れ:
+1. クライアント名・サイト種別・納期・オーナーを軽くヒアリング（4 問）
+2. 裏で `site-strategy-orchestrator` に case doc 作成を依頼（並行・非同期）
+3. 続けて 30 問の本ヒアリング（JTBD + VPC + 意識レベル）
+
+ヒアリング完了後は orchestrator が自動で次のフェーズ（要件整理 → リサーチ → 戦略ブリーフ）にハンドオフします。
+
+### API 起動（自動化案件用）
+
+orchestrator から既存 case doc 付きで起動する場合:
 
 ```bash
 aachat session run site-hearing-agent --project <project> --via claude-code "
